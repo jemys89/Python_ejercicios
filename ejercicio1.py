@@ -1,11 +1,11 @@
-# ejercicio 1 de programación
-#Jamal y simar
-
-print("****Programa que te da el doble y el triple del número que pidas****")
-
-numero = int(input("Introduzca cualquier numero: "))
+#Escribe un programa que pida por teclado un número entero mostrando un mensaje oportuno.
+# A continuación escribe en pantalla el número leído, el doble del número leído y el triple del mismo.
 
 
-print (numero)
-print (numero**2)
-print (numero**3)
+print("Programa para saber el doble y el triple del número que pidas")
+
+numero = int(input("Introduce cualquier número: "))
+
+print (numero*2)
+print (numero*3)
+
