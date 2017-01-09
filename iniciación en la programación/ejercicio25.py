@@ -8,7 +8,7 @@ def introduceDosNumeros():
         	 primerNumero=(int(input("Introduce el número positivo: ")))	
 	segundoNumero = int(input("Introduce el segundo número positivo"))
 	while segundoNumero < 0 or segundoNumero == primerNumero:
-             print ('ERROR, Introduce un número positivo')
+             print ('ERROR, Introduce un número positivo y que no sea igual al primer número')
              segundoNumero=(int(input("Introduce un número positivo y que no sea igual que el primer número: ")))
 	
 	if primerNumero < segundoNumero:
