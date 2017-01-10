@@ -20,76 +20,76 @@
 
 ###Clase cuenta corriente###
 class CuentaCorriente:
-    def __init__(self):
-        self.nombre = ""
-        self.apellidos = ""
-        self.direccion = ""
-        self.telefono = ""
-        self.nif = ""
-        self.saldo = 0
+    ###Inicialización de las propiedades privadas###
+    def __init__(self,nombre,apellidos,direccion,telefono,nif,saldo=0):
+        self.__nombre = nombre
+        self.__apellidos = apellidos
+        self.__direccion = direccion
+        self.__telefono = telefono
+        self.__nif = nif
+        self.__saldo = saldo
 
     ###Métodos públicos "set()"
     def setNombre(self, nombre):
-        self.nombre = nombre
-
+        self.__nombre = nombre
 
     def setApellidos(self, apellidos):
-        self.apellidos = apellidos
+        self.__apellidos = apellidos
 
     def setDireccion(self, direccion):
-        self.direccion = direccion
+        self.__direccion = direccion
 
     def setTelefono(self, telefono):
-        self.telefono = telefono
+        self.__telefono = telefono
 
-    def setDni(self, nif):
-        self.nif = nif
+    def setNif(self, nif):
+        self.__nif = nif
 
     def setSaldo(self, saldo):
-        self.saldo = saldo
+        self.__saldo = saldo
 
-    ###Métodos públicos "get()"
-    def getNombre(self, nombre):
-        return self.nombre
+    ###Métodos privados "get()"
+    def getNombre(self):
+        return self.__nombre
 
-    def getApellidos(self, apellidos):
-        return self.apellidos
+    def getApellidos(self):
+        return self.__apellidos
 
-    def getDireccion(self, direccion):
-        return self.direccion
+    def getDireccion(self):
+        return self.__direccion
 
-    def getDni(self, nif):
-        return self.nif
+    def getNif(self):
+        return self.__nif
 
-    def getSaldo(self, saldo):
-        return self.saldo
+    def getSaldo(self):
+        return self.__saldo
 
     ### retirarDinero(): resta al saldo una cantidad de dinero pasada como argumento. ###
-    def retirarDinero(self, saldo):
+    def retirarDinero(self, adeudo):
         try:
-            self.saldo = self.saldo - saldo
+            self.__saldo = self.__saldo - adeudo
         except TypeError:
             print("El valor introducido no és de tipo númerico")
 
     ### ingresarDinero(): añade al saldo una cantidad de dinero.###
-    def ingresarDinero(self, saldo):
+    def ingresarDinero(self, ingreso):
         try:
-            self.saldo = self.saldo + saldo
+            self.__saldo = self.__saldo + ingreso
         except TypeError:
             print("El valor introducido no és de tipo númerico")
 
     ### consultarCuenta(): visualizará los datos de la cuenta.###
-    def consultarCuenta(self,):
-        print("Nombre: {}".format(self.nombre))
-        print("Apellidos: {}".format(self.apellidos))
-        print("Dirección: {}".format(self.direccion))
-        print("Teléfono: {}".format(self.telefono))
-        print("NIF: {}".format(self.nif))
-        print("Saldo: {}.".format(self.saldo))
+    def consultarCuenta(self):
+        print("Nombre: {}".format(self.__nombre))
+        print("Apellidos: {}".format(self.__apellidos))
+        print("Dirección: {}".format(self.__direccion))
+        print("Teléfono: {}".format(self.__telefono))
+        print("NIF: {}".format(self.__nif))
+        print("Saldo: {}.".format(self.__saldo))
 
     ### saldoNegativo(): devolverá un valor lógico indicando si la cuenta está o no en números rojos.###
-    def saldoNegativo(self, saldo):
-        if self.saldo - self.saldo == 0:
+    def saldoNegativo(self):
+        if self.__saldo < 0:
             return True
         else:
             return False
@@ -99,26 +99,20 @@ class CuentaCorriente:
 if __name__ == '__main__':
 
     # Definimos un objeto llamado "usuario"
-    usuario = CuentaCorriente()
-    usuario.setDni("4219586Q")
-    usuario.setNombre("Pulgarcito")
-    usuario.setApellidos("Buscaba un garbancito")
-    usuario.setDireccion("En una calle llena de niebla")
-    usuario.setTelefono("699354876")
-    usuario.setSaldo(6500.0)
-
-    usuario.consultarCuenta()
-    usuario.ingresarDinero(200)
-    usuario.consultarCuenta()
-    usuario.retirarDinero(400)
-    usuario.consultarCuenta()
-    if usuario.saldoNegativo == True:
-        print("Saldo negativo: Estás seco...")
-    else:
-        print("Saldo negativo:  Aún sobrevives... quedan monedas en tu cuenta")
+    usuario = CuentaCorriente("Jamal","Mohamet","C/Pulgarcito nº2","666 666 666","43000000A",6500.0)
+   
+    print(usuario.getNombre())
+    usuario.setNombre("Marc")
+    print(usuario.getNombre())
+    print(usuario.getSaldo())
+    usuario.ingresarDinero(1100)
+    print(usuario.getSaldo())
+    usuario.retirarDinero(10000)
+    print(usuario.saldoNegativo())
+    print(usuario.consultarCuenta())
 
 
-
+  
 
 
 
