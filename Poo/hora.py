@@ -21,7 +21,56 @@
 #imprmirHora() que muestra en consola la hora en formato string de la forma "horas:minutos:segundos".
 #Métodos set() y get() para todas las propiedades [Abstracción y encapsulamiento].
 
+### Defino la clase "Hora"###
+class Hora:
+	def __init__(self,hora,minutos,segundos):
+		if hora>24 or hora <0:
+			self.__hora = 0
+		else:
+			self.__hora = hora
+		if minutos>=60 or minutos<0:
+			self.__minutos = 0
+		else:
+			self.__minutos = minutos
+		if segundos>=60 or segundos<0:
+			self.__segundos = 0
+		else:
+			self.__segundos = segundos
+
+	### Métodos set() y get() para todas las propiedades [Abstracción y encapsulamiento].  ###
+	def setHora(self, hora, minutos, segundos):
+		self.__hora = hora
+		self.__minutos = minutos
+		self.__segundos = segundos
+
+	def setMinutos(self, minutos):
+		self.__minutos = minutos
+
+	def setSegundos(self, segundos):
+		self.__segundos = segundos
+
+	def getHora(self):
+		return print((self.__hora),":",(self.__minutos),":",self.__segundos)
+
+	def getMinutos(self):
+		return self.__minutos
+
+	def getSegundos(self):
+		return self.__segundos
+
+	### imprmirHora() que muestra en consola la hora en formato string de la forma "horas:minutos:segundos".  ###
+	def imprimirHora(self):
+		return print((self.__hora),":",(self.__minutos),":",self.__segundos)
+
+######  Casos Test   #####
+tiempo = Hora(15,45,15)
+tiempo.getHora()
+lluvia = Hora(25,45,26)
+lluvia.getHora()
 
 
 
+	
 
+
+		
