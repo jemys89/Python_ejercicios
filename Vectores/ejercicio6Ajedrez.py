@@ -4,15 +4,8 @@
 def ajedrez():
 	lineaCuadrado = [[1],[0]]*4
 	lineaCuadradoX = [[0],[1]]*4
-	print (str(lineaCuadrado))
-	print (str(lineaCuadradoX))
-	print (str(lineaCuadrado))
-	print (str(lineaCuadradoX))
-	print (str(lineaCuadrado))
-	print (str(lineaCuadradoX))
-	print (str(lineaCuadrado))
-	print (str(lineaCuadradoX))
-
+	print ((str(lineaCuadrado) + "\n" + str(lineaCuadradoX)+"\n")  * 4)
+	
 
 
 
