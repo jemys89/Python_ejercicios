@@ -6,11 +6,7 @@ from yatzy import Yatzy
 
 
 def test_chance():
-    '''
-    Chance
-    The player scores the sum of all dice, no matter what they read.
-    '''
-    # iterar sobre *args evita codigo cableado a 5 argumentos
+    ### La suma de todos los dados ###
     assert 15 == Yatzy.chance(1, 2, 3, 4, 5)
     assert 14 == Yatzy.chance(1, 1, 3, 3, 6)
     assert 21 == Yatzy.chance(4, 5, 5, 6, 1)
@@ -18,54 +14,27 @@ def test_chance():
 
 
 def test_yatzy():
-    '''
-    Yatzy
-    If all dice have the same number, the player scores 50 points.
-    '''
-    # dice significa "dados" pero exige un unico argumento
-    # => interfaz abstraccion del metodo no es coherente
-    # con el resto de metodos
-    # El codigo para iterar sobre dice es muy complejo
-    # El algoritmo para averiguar si todos los dados son iguales
-    # es muy complejo
+    #### 50 puntos si son todos los dados iguales ####
     assert 50 == Yatzy.yatzy(1, 1, 1, 1, 1)
     assert 0 == Yatzy.yatzy(1, 1, 1, 2, 1)
 
 
-# Ones, Twos, Threes, Fours, Fives, Sixes:
-# The player scores the sum of the dice that reads one,
-# two, three, four, five or six, respectively.
 
-# Los metodos ones, twos, threes tienes codigo muy parecido:
-# solo se diferencian en el numero que suman al total
-# que es el numero de la categoria.
-# Refactorizamos primero ones y luego exportamos
-# la solucion a los demas.
-# (mantener pasos pequenhos en la refactorizacion)
-#
-# Los algoritmos para iterar sobre la tirada de dados
-# son muy complejos.
 
 def test_ones():
-    '''
-    The player scores the sum of the dice that reads one
-    '''
+    ### La suma de todos los UNOS ###
     assert 0 == Yatzy.ones(3, 3, 3, 4, 5)
     assert 5 == Yatzy.ones(1, 1, 1, 1, 1)
 
 
 def test_twos():
-    '''
-    The player scores the sum of the dice that reads two
-    '''
+    ### La suma de todos los DOSES ###
     assert 0 == Yatzy.twos(3, 3, 3, 4, 5)
     assert 4 == Yatzy.twos(2, 3, 2, 5, 1)
 
 
 def test_threes():
-    '''
-    The player scores the sum of the dice that reads three
-    '''
+    ### La suma de todos los TRESES ###
     assert 0 == Yatzy.threes(1, 1, 1, 1, 1)
     assert 9 == Yatzy.threes(3, 3, 3, 4, 5)
 
@@ -97,10 +66,7 @@ def inyector():
 
 
 def test_fours(inyector):
-    '''
-    The player scores the sum of the dice that reads four
-    '''
-    # es necesario un objeto de tipo Yatzy ya creado
+    ### La suma de todos los CUATROS ###
     valorEsperado = 8
     # No puedo testear con fixtures = inyeccion de dependencias
     # los metodos estaticos como chance()
@@ -108,29 +74,20 @@ def test_fours(inyector):
 
 
 def test_fives(inyector):
-    '''
-    The player scores the sum of the dice that reads five
-    '''
+    ### La suma de todos los CINCOS ###
     valorEsperado = 10
     assert valorEsperado == inyector.fives()
 
 
 def test_sixes(inyector):
-    '''
-    The player scores the sum of the dice that reads six
-    '''
+    ### La suma de todos los SEISES ###
     valorEsperado = 6
     assert valorEsperado == inyector.sixes()
 
 
 def test_pair():
-    '''
-    Pair:
-    The player scores the sum of the two highest matching dice.
-    '''
-    # El algoritmo del metodo no es optimo, es complicado e ilegible.
-    # La abstraccion, el nombre del metodo, no es adecuada
-    # puesto que la categoria se llama pair.
+    ### Se le ha cambiado el nómbre del método de score_pair a pair, consiste en la suma de una pareja, ####
+    #### en caso de dos parejas se le sumará la más alta ####
     assert 8 == Yatzy.pair(3, 3, 3, 4, 4)
     assert 12 == Yatzy.pair(1, 1, 6, 2, 6)
     assert 6 == Yatzy.pair(3, 3, 3, 4, 1)
