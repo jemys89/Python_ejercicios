@@ -96,15 +96,7 @@ def test_pair():
 
 
 def test_two_pairs():
-    '''
-    Two pairs:
-    If there are two pairs of dice with the same number, the
-    player scores the sum of these dice.
-    '''
-    # La categoria se llama "two pairs": la abstraccion del metodo
-    # no es adecuada.
-    # Mantengo notacion snake_case
-    # El algoritmo del metodo no es optimo, es complicado e ilegible.
+    ### Suma dos parejas ###
 
     assert 8 == Yatzy.two_pairs(1, 1, 2, 3, 3)
     assert 0 == Yatzy.two_pairs(1, 1, 2, 3, 4)
@@ -112,26 +104,18 @@ def test_two_pairs():
     assert 0 == Yatzy.two_pairs(1, 2, 3, 4, 5)
 
 
-# Three of a kind:
-# If there are three dice with the same number, the player
-# scores the sum of these dice.
-#
-# El algoritmo del metodo no es optimo, es complicado e ilegible.
 
 def test_three_of_a_kind():
+    ### Suma 3 cartas iguales ###
     assert 9 == Yatzy.three_of_a_kind(3, 3, 3, 4, 5)
     assert 0 == Yatzy.three_of_a_kind(3, 3, 4, 5, 6)
     assert 9 == Yatzy.three_of_a_kind(3, 3, 3, 3, 1)
     assert 0 == Yatzy.three_of_a_kind(1, 2, 3, 4, 5)
 
-# Four of a kind:
-# If there are four dice with the same number, the player
-# scores the sum of these dice.
-#
-# El algoritmo del metodo no es optimo, es complicado e ilegible.
 
 
 def test_four_of_a_kind():
+    ### Suma 4 cartas iguales ###
     assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 5)
     assert 0 == Yatzy.four_of_a_kind(2, 2, 2, 5, 5)
     assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 2)
