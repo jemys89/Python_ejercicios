@@ -1,5 +1,4 @@
 {
   "test_yatzy_from_scratch_refactorizado.py::test_large_straight": true,
-  "test_yatzy_from_scratch_refactorizado.py::test_small_straight": true,
-  "test_yatzy_from_scratch_refactorizado.py::test_two_pairs": true
+  "test_yatzy_from_scratch_refactorizado.py::test_small_straight": true
 }
