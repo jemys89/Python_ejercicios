@@ -10,12 +10,10 @@ print("Programa que calcula la suma únicamente si los dos números introducidos
 numeroUno = int(input("teclee un número:"))
 numeroDos = int(input("teclee otro número:"))
 if numeroUno %2 == 0 and numeroDos %2 == 0:
-    print (numeroUno + numeroDos)
-elif numeroUno < 50:
-	print (numeroUno + numeroDos)
-elif numeroDos >100 and numeroDos <500:
-	print(numeroUno + numeroDos)
+    if numeroUno < 50 and numeroDos > 100 and numeroDos <500:
+    	print("La suma de los números es ", (numeroUno+numeroDos))
+    else:
+    	print("Lo introducido no cumple las condiciones")
 else:
     print("Alguno de los 2 valores no cumplen las condiciones")
     
-
